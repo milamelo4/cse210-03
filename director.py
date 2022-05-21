@@ -1,6 +1,6 @@
 from jumper import Jumper
-from secrete_word import Secrete_word
-from terminal_service import Terminal_service
+from secrete_word import SecretWord
+from terminal_service import TerminalService
 import random
 
 class Director:
@@ -22,8 +22,8 @@ class Director:
         """
         self._jumper = Jumper()
         self._is_playing = True
-        self._secret_word = Secrete_word()
-        self._terminal_service = Terminal_service()
+        self._secret_word = SecretWord()
+        self._terminal_service = TerminalService()
 
     def start_game(self):
         """Starts the game by running the main game loop.

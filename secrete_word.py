@@ -1,4 +1,4 @@
-class Secrete_word:
+class SecretWord:
     pass
 
 word_list = [
