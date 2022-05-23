@@ -3,11 +3,12 @@ class Jumper:
     pass
 class Jumper:
   
-  def __init__(self, prompt):
+  def __init__(self, guess):
     
       pass
   
-  
+  def jumper():
+      pass
  
 body = [
 """ 
