@@ -6,8 +6,9 @@ class Jumper:
   """The jumpers displays the parachute drawing """
   
   def __init__(self):
-    self._letters = self._letter.check_asnswer() 
-    self._word = self 
+    # self._letters = self._letter.check_asnswer() 
+    # self._word = self 
+    pass
       
   
   def jumper():

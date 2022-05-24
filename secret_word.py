@@ -3,7 +3,7 @@ import terminal_service
 
 class SecretWord:
     def __init__(self):  
-        self.__word_list = [
+        self._word_list = [
             'wares',
             'soup',
             'mount',
@@ -263,12 +263,12 @@ class SecretWord:
         self.lives = 6
         self.answer = ""
 
-    def __word_selector(self):
-        word = random.choice(self.__word_list)
+    def word_selector(self):
+        word = random.choice(self._word_list)
         return word
 
-    def __draw_lines(self):
-        w = self.__word_selector()
+    def draw_lines(self):
+        w = self.word_selector()
         res = list(w)
         lines = []
         for i in res :
@@ -279,13 +279,14 @@ class SecretWord:
         print()
         return res, lines
     
-    def __guess(self, answer):
+    def guess(self, answer):
         
         print()
+        self.answer = input("guess a letter: ")
         
 
     def check_answer(self):
-        lists = self.__draw_lines()
+        lists = self.draw_lines()
         letters = lists[0]
         lines = lists[1] 
         lines_count = 1
@@ -293,7 +294,7 @@ class SecretWord:
         while self.lives > 0 and lines_count > 0:
             lines_count = 0
             answer = False
-            self.__guess()
+            self.guess(answer)
             for i in range(len(letters)):
                 
                 if letters[i - 1] == self.answer:
