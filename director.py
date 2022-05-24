@@ -1,5 +1,5 @@
 from jumper import Jumper
-from secrete_word import SecretWord
+from secret_word import SecretWord
 from terminal_service import TerminalService
 import random
 
@@ -38,11 +38,13 @@ class Director:
 
     def _get_inputs(self):
         """
-
+        Reads text from user, calling in secret word class.
         Args:
             self (Director): An instance of Director.
         """ 
-        
+        new_answer = self._terminal_service.read_text("Guess a letter: ")
+        self._secret_word.guess(new_answer)
+
 
 
     def _do_updates(self):
@@ -51,7 +53,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-
+        
 
 
     def _do_outputs(self):
@@ -60,3 +62,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        # Write text pulls code for each guess and shows the jumper
+
+       
+
