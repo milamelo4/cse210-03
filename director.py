@@ -42,13 +42,13 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """ 
-        if self._secret_word.word == "":
-            self._secret_word.word_selector()
-            self._secret_word.draw_lines()
-        new_answer = self._terminal_service.read_text("Guess a letter: ")
-        self._secret_word.guess(new_answer)
-        self._secret_word.check_answer()
+        print()
+        self._lines = self._secret_word.draw_lines()
+        self.jumper1 = self._jumper.get_parts()
+        print(self.jumper1)
+        self.new_answer = self._terminal_service.read_text('\nGuess a letter: ')
         
+        self._secret_word.guess(self.new_answer)
 
 
 
