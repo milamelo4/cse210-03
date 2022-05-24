@@ -279,10 +279,10 @@ class SecretWord:
         print()
         return res, lines
     
-    def __guess(self):
+    def __guess(self, answer):
         
         print()
-        self.answer = input("Guess a letter: ")
+        self.answer = answer
         
 
     def check_answer(self):
