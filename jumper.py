@@ -1,7 +1,6 @@
 class Jumper:
-    """The jumpers displays the parachute drawing """
-    pass
-class Jumper:
+    
+  """The jumpers displays the parachute drawing """
   
   def __init__(self, guess):
     
