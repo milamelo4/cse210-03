@@ -279,7 +279,7 @@ class SecretWord:
         print()
         return res, lines
     
-    def guess(self):
+    def guess(self, answer):
         
         print()
         self.answer = input("Guess: ")
@@ -324,6 +324,6 @@ class SecretWord:
 
 
 
-ex = SecretWord()
+# ex = SecretWord()
 
-ex.check_answer()
+# ex.check_answer()
