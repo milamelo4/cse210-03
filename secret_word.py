@@ -279,10 +279,17 @@ class SecretWord:
         print()
         return res, lines
     
+<<<<<<< Updated upstream:secret_word.py
     def guess(self, answer):
         
         print()
         self.answer = input("guess a letter: ")
+=======
+    def __guess(self):
+        
+        print()
+        self.answer = input("Guess: ")
+>>>>>>> Stashed changes:secrete_word.py
         
 
     def check_answer(self):
