@@ -1,92 +1,17 @@
+from jumper_parts import jumper_parts
+
+print(jumper_parts[0])
 class Jumper:
     
   """The jumpers displays the parachute drawing """
   
-  def __init__(self, guess):
-    
-      pass
+  def __init__(self):
+    self._letters = self._letter.check_asnswer() 
+    self._word = self 
+      
   
   def jumper():
       pass
  
-body = [
-""" 
-   _________
-  /         \\
- / _   _   _ \\
- |/ \ / \ / \|
-  \  | _ |  /  
-   o '(_)' o  
-    \/.X.\/
-      |_|
-     // \\\\
-     \\\\ //
-      U U   """,
-      
 
-"""   
-  /         \\
- / _   _   _ \\
- |/ \ / \ / \|
-  \  | _ |  /
-   o '(_)' o
-    \/.X.\/
-      |_|
-     // \\\\
-     \\\\ //
-      U U  """ ,
 
-""" 
- / _   _   _ \\
- |/ \ / \ / \|
-  \  | _ |  /
-   o '(_)' o
-    \/.X.\/
-      |_|
-     // \\\\
-     \\\\ //
-      U U   """ ,
-
-"""  
- |/ \ / \ / \|
-  \  | _ |  /
-   o '(_)' o
-    \/.X.\/
-      |_|
-     // \\\\
-     \\\\ //
-      U U   """ ,
-
-"""  
-  \  | _ |  /
-   o '(_)' o
-    \/.X.\/
-      |_|
-     // \\\\
-     \\\\ //
-      U U  """ ,
-  
-"""             
-       _      
-   o  (_) o   Noooo!  
-    \/.X.\/  
-      |_|    
-     // \\\\
-     \\\\ //
-      U U  """ ,
-
-"""   _________
-  /         \\
- / _   _   _ \\  
- |/ \ / \ / \|  _____________
-  \  | _ |  /  /             \\
-   o '(_)' o  < You saved me! >
-    \/.X.\/    \\_____________/
-      |_|
-     // \\\\
-     \\\\ //
-      U U """ ,
-]
-
-for i in range(len(body)):
-    print(body[i])
