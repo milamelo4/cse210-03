@@ -1,5 +1,5 @@
 import random
-import terminal_service
+
 
 class SecretWord:
     def __init__(self):  
@@ -262,58 +262,63 @@ class SecretWord:
             'minutia']
         self.lives = 6
         self.answer = ""
+        self.letters = []
+        self.lines = []
+        self.lines_count = 1
+        self.word = ""
+
 
     def word_selector(self):
-        word = random.choice(self._word_list)
-        return word
+        self.word = random.choice(self._word_list)
+        
 
     def draw_lines(self):
-        w = self.word_selector()
-        res = list(w)
-        lines = []
-        for i in res :
-            lines.append("_")
-        for i in range(len(res)):
-            print (lines[i - 1], end=" ")
-
+        self.letters = list(self.word)
+        for i in self.letters :
+            self.lines.append("_")
+        for i in range(len(self.letters)):
+            print (self.lines[i - 1], end=" ")
         print()
-        return res, lines
-    
-    def __guess(self):
         
+    def guess(self, answer):
         print()
-        self.answer = input("Guess: ")
+        self.answer = answer
         
 
     def check_answer(self):
-        lists = self.draw_lines()
-        letters = lists[0]
-        lines = lists[1] 
-        lines_count = 1
-        
-        while self.lives > 0 and lines_count > 0:
-            lines_count = 0
+            self.lines_count = 0
             answer = False
-            self.guess(answer)
-            for i in range(len(letters)):
+            for i in range(len(self.letters)):
                 
-                if letters[i - 1] == self.answer:
+                if self.letters[i - 1] == self.answer:
                     
-                    lines[i - 1] = self.answer
+                    self.lines[i - 1] = self.answer
                     answer = True
                 
-            for i in range(len(letters)):
-                
-                print(lines[i], end=" ")
-                print()
-                if lines[i] == "_":
-                    lines_count += 1
-                
+            for i in range(len(self.letters)):
+                print(self.lines[i], end=" ")
+                if self.lines[i] == "_":
+                    self.lines_count += 1
+            print()    
             if answer == False:
                 self.lives -= 1
             
-                           
-        print("The END")    
+    def is_alive(self):
+        return self.lives > 0 and self.lines_count > 0
+
+    def main(self):
+        
+        while self.lives > 0 and self.lines_count > 0:
+            
+            if self.word == "":
+                
+                self.word_selector()
+                
+                self.draw_lines()
+                
+            self.guess()
+            self.check_answer()
+         
 
         
         
@@ -324,6 +329,6 @@ class SecretWord:
 
 
 
-ex = SecretWord()
+# ex = SecretWord()
 
-ex.check_answer()
+# ex.main()

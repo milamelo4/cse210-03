@@ -42,8 +42,13 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """ 
+        if self._secret_word.word == "":
+            self._secret_word.word_selector()
+            self._secret_word.draw_lines()
         new_answer = self._terminal_service.read_text("Guess a letter: ")
         self._secret_word.guess(new_answer)
+        self._secret_word.check_answer()
+        
 
 
 
@@ -62,7 +67,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        # Write text pulls code for each guess and shows the jumper
+        if not self._secret_word.is_alive():
+            self._is_playing = False
 
        
 
