@@ -279,7 +279,7 @@ class SecretWord:
         print()
         return res, lines
     
-    def __guess(self):
+    def guess(self):
         
         print()
         self.answer = input("Guess: ")
