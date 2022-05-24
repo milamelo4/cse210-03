@@ -282,7 +282,6 @@ class SecretWord:
     def __guess(self, answer):
         
         print()
-        self.answer = answer
         
 
     def check_answer(self):
@@ -305,6 +304,7 @@ class SecretWord:
             for i in range(len(letters)):
                 
                 print(lines[i], end=" ")
+                print()
                 if lines[i] == "_":
                     lines_count += 1
                 
