@@ -48,7 +48,7 @@ class Director:
         print(self.jumper1)
         self.new_answer = self._terminal_service.read_text('\nGuess a letter: ')
         
-        self._secret_word.guess(self.new_answer)
+        #self._secret_word.guess(self.new_answer)
 
 
 
