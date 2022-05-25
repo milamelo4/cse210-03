@@ -273,10 +273,10 @@ class SecretWord:
 
     def word_selector(self):
         self.word = random.choice(self._word_list)
-        self.letters = list(self.word) # Added
+     
 
     def draw_lines(self):
-        # self.letters = list(self.word)
+        self.letters = list(self.word)
         for i in self.letters :
             self.lines.append("_")
         for i in range(len(self.letters)):
@@ -284,7 +284,6 @@ class SecretWord:
         print()
 
 
-        
     def guess(self, answer):
         print()
         self.answer = answer
@@ -311,29 +310,21 @@ class SecretWord:
     def is_alive(self):
         return self.lives > 0 and self.lines_count > 0
 
-    # def main(self):
+    def main(self):
         
-    #     while self.lives > 0 and self.lines_count > 0:
+        while self.lives > 0 and self.lines_count > 0:
             
-    #         if self.word == "":
+            if self.word == "":
                 
-    #             self.word_selector()
+                self.word_selector()
                 
-    #             self.draw_lines()
+                self.draw_lines()
                 
-    #         self.guess(answer)
-    #         self.check_answer()
+            self.guess()
+            self.check_answer()
          
+  
 
-        
-        
-    
+# ex = SecretWord()
 
-        
-
-
-
-
-ex = SecretWord()
-
-ex.check_answer()
+# ex.main()
