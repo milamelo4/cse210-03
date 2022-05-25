@@ -43,6 +43,7 @@ class Director:
             self (Director): An instance of Director.
         """ 
         print()
+        self._terminal_service.write_text('Welcome to the Jumper Game!')
         self._lines = self._secret_word.draw_lines()
         self.jumper1 = self._jumper.get_parts()
         print(self.jumper1)
