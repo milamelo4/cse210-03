@@ -320,11 +320,11 @@ class SecretWord:
                 
                 self.draw_lines()
                 
-            self.guess()
+            self.guess(self.answer)
             self.check_answer()
          
   
 
-# ex = SecretWord()
+ex = SecretWord()
 
-# ex.main()
+ex.main()
