@@ -1,8 +1,15 @@
 import random
 
 class SecretWord:
-    """Get a random word from a list, and draw lines for the guesser.
-
+    """The responislity of the secret word it to get a random word from a list, and draw lines for the guesser. It also checks if the guess is in the secret word
+    Attributes:
+        word_list = the list of words to pull from
+        lives = how many times the player can guess a wrong answer
+        answer = pulled from the director file as the guess from the player
+        letters = the list of letters from the randomly chosen word
+        lines = list of dashes that indicate how many letters are in the word and signal the player what has not been guessed
+        lines_count = variable in check_answer method to loop through the list of lines
+        word = the randomly chosen word
     """
     def __init__(self):  
         self._word_list = [
@@ -262,44 +269,65 @@ class SecretWord:
             'fearful',
             'basement',
             'minutia']
-        self.lives = 5
-        self.answer = ""
-        self.letters = []
-        self.lines = []
-        self.lines_count = 1
-        self.word = ""
+        self._lives = 5
+        self._answer = ""
+        self._letters = []
+        self._lines = []
+        self._lines_count = 1
+        self._word = ""
 
     def word_selector(self):
-        self.word = random.choice(self._word_list)
-        print(self.word)
+        """Gets a random word from the list
+        Args:
+            self (SecretWord): An instance of SecretWord
+        """
+        self._word = random.choice(self._word_list)
+        # print(self._word)
 
     def draw_lines(self):
-        self.letters = list(self.word)
-        for i in self.letters :
-            self.lines.append("_")
-        for i in range(len(self.letters)):
-            print (self.lines[i - 1], end=" ")
+        """Makes lines that are the same length as the secret word so the player can know how many letters are in the word
+         Args:
+            self (SecretWord): An instance of SecretWord
+        """
+        self._letters = list(self._word)
+        for i in self._letters :
+            self._lines.append("_")
+        for i in range(len(self._letters)):
+            print (self._lines[i - 1], end=" ")
         print()
 
     def guess(self, answer):
+        """Method to do check_answer, gets answer parameter from players guess
+         Args:
+            self (SecretWord): An instance of SecretWord
+        """
         print()
-        self.answer = answer
+        self._answer = answer     
 
     def check_answer(self):
-            self.lines_count = 0
-            answer = False
-            for i in range(len(self.letters)):
-                if self.letters[i - 1] == self.answer:
-                    self.lines[i - 1] = self.answer
-                    answer = True
-            for i in range(len(self.letters)):
-                print(self.lines[i], end=" ")
-                if self.lines[i] == "_":
-                    self.lines_count += 1
-            print()    
-            if answer == False:
-                self.lives -= 1
+        """Method to loop through the lists of the word and lines, putting the correctly guessed letter in the list and taking out the corresponding line
+         Args:
+            self (SecretWord): An instance of SecretWord
+        """
+        self._lines_count = 0
+        answer = False
+        for i in range(len(self._letters)):
+            if self._letters[i - 1] == self._answer:
+                self._lines[i - 1] = self._answer
+                answer = True
+        for i in range(len(self._letters)):
+            print(self._lines[i], end=" ")
+            if self._lines[i] == "_":
+                self._lines_count += 1
+        print()    
+        if answer == False:
+            self._lives -= 1
             
     def is_alive(self):
-        return self.lives > 0 and self.lines_count > 0
+        """Method to determine if the jumper is still alive 
+        Args:
+            self (SecretWord): An instance of SecretWord
+        Returns True if jumper has parachute left
+        """
+        return self._lives > 0 and self._lines_count > 0
 

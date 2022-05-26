@@ -1,7 +1,6 @@
 from jumper import Jumper
 from secret_word import SecretWord
 from terminal_service import TerminalService
-import random
 
 class Director:
     """A person who directs the game. 
@@ -24,7 +23,7 @@ class Director:
         self._is_playing = True
         self._secret_word = SecretWord()
         self._terminal_service = TerminalService()
-        self.lives = 5
+        self._lives = 5
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -32,11 +31,16 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        print()
+        self._terminal_service.write_text("Welcome to the Jumper Game! Save the jumper by guessing correct letters!")
+        self._terminal_service.write_text("An incorrect guess will start destroying the parachute. Be careful!")
+        print()
+       
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
-        if self.lives > 0:
+        if self._lives > 0:
             self._jumper.winner()
         else: 
             self._jumper.lost()
@@ -47,25 +51,27 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """ 
-        if self._secret_word.word == "":
+        if self._secret_word._word == "":
             self._secret_word.word_selector()
             self._secret_word.draw_lines()
-        self._jumper.get_parts((self.lives - 5) * -1)
+        self._jumper.get_parts((self._lives - 5) * -1)
         new_answer = self._terminal_service.read_text('\nGuess a letter: ')
         self._secret_word.guess(new_answer)
         self._secret_word.check_answer()
 
+
+       
+
     def _do_updates(self):
-        """
+        """ Updates the lives of the jumper.
         Args:
             self (Director): An instance of Director.
         """
-
-        self.lives = self._secret_word.lives
+        self._lives = self._secret_word._lives
 
 
     def _do_outputs(self):
-        """
+        """Looks at method in secret word to keep playing if player is still alive
         Args:
             self (Director): An instance of Director.
         """
