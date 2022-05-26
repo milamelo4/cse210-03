@@ -282,7 +282,7 @@ class SecretWord:
             self (SecretWord): An instance of SecretWord
         """
         self._word = random.choice(self._word_list)
-        # print(self._word)
+        #print(self._word)
 
     def draw_lines(self):
         """Makes lines that are the same length as the secret word so the player can know how many letters are in the word
@@ -322,7 +322,7 @@ class SecretWord:
         print()    
         if answer == False:
             self._lives -= 1
-            
+            print('\nYou have', self._lives, 'tries left.')
     def is_alive(self):
         """Method to determine if the jumper is still alive 
         Args:

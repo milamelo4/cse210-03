@@ -44,6 +44,8 @@ class Director:
             self._jumper.winner()
         else: 
             self._jumper.lost()
+            self._terminal_service.write_text(f'\nThe secret word was: "{self._secret_word._word}"')
+            print()
 
     def _get_inputs(self):
         """
@@ -55,11 +57,9 @@ class Director:
             self._secret_word.word_selector()
             self._secret_word.draw_lines()
         self._jumper.get_parts((self._lives - 5) * -1)
-        new_answer = self._terminal_service.read_text('\nGuess a letter: ')
+        new_answer = self._terminal_service.read_text('\nGuess a letter [a-z]: ')
         self._secret_word.guess(new_answer)
         self._secret_word.check_answer()
-
-
        
 
     def _do_updates(self):
