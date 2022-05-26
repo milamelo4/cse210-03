@@ -273,7 +273,7 @@ class SecretWord:
 
     def word_selector(self):
         self.word = random.choice(self._word_list)
-     
+        print(self.word)
 
     def draw_lines(self):
         self.letters = list(self.word)
@@ -325,6 +325,5 @@ class SecretWord:
          
   
 
-ex = SecretWord()
 
-ex.main()
+
