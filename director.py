@@ -62,7 +62,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        
+        parachute = self._jumper.get_parts
+        print(parachute)
 
 
     def _do_outputs(self):
