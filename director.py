@@ -60,7 +60,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+
         self.lives = self._secret_word.lives
+
 
     def _do_outputs(self):
         """
