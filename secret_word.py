@@ -1,6 +1,5 @@
 import random
 
-
 class SecretWord:
     """Get a random word from a list, and draw lines for the guesser.
 
@@ -263,17 +262,16 @@ class SecretWord:
             'fearful',
             'basement',
             'minutia']
-        self.lives = 6
+        self.lives = 5
         self.answer = ""
         self.letters = []
         self.lines = []
         self.lines_count = 1
         self.word = ""
 
-
     def word_selector(self):
         self.word = random.choice(self._word_list)
-     
+        print(self.word)
 
     def draw_lines(self):
         self.letters = list(self.word)
@@ -283,22 +281,17 @@ class SecretWord:
             print (self.lines[i - 1], end=" ")
         print()
 
-
     def guess(self, answer):
         print()
         self.answer = answer
-        
 
     def check_answer(self):
             self.lines_count = 0
             answer = False
             for i in range(len(self.letters)):
-                
                 if self.letters[i - 1] == self.answer:
-                    
                     self.lines[i - 1] = self.answer
                     answer = True
-                
             for i in range(len(self.letters)):
                 print(self.lines[i], end=" ")
                 if self.lines[i] == "_":
@@ -310,21 +303,3 @@ class SecretWord:
     def is_alive(self):
         return self.lives > 0 and self.lines_count > 0
 
-    def main(self):
-        
-        while self.lives > 0 and self.lines_count > 0:
-            
-            if self.word == "":
-                
-                self.word_selector()
-                
-                self.draw_lines()
-                
-            self.guess(self.answer)
-            self.check_answer()
-         
-  
-
-ex = SecretWord()
-
-ex.main()

@@ -24,6 +24,7 @@ class Director:
         self._is_playing = True
         self._secret_word = SecretWord()
         self._terminal_service = TerminalService()
+        self.lives = 5
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -35,6 +36,10 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
+        if self.lives > 0:
+            self._jumper.winner()
+        else: 
+            self._jumper.lost()
 
     def _get_inputs(self):
         """
@@ -42,32 +47,23 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """ 
-        # print()
-        # self._lines = self._secret_word.draw_lines()
-        # self.jumper1 = self._jumper.get_parts()
-        # print(self.jumper1)
-        # self.new_answer = self._terminal_service.read_text('\nGuess a letter: ')
-        
-        # self._secret_word.guess(self.new_answer)
         if self._secret_word.word == "":
             self._secret_word.word_selector()
             self._secret_word.draw_lines()
+        self._jumper.get_parts((self.lives - 5) * -1)
         new_answer = self._terminal_service.read_text('\nGuess a letter: ')
         self._secret_word.guess(new_answer)
         self._secret_word.check_answer()
 
     def _do_updates(self):
         """
-
         Args:
             self (Director): An instance of Director.
         """
-        
-
+        self.lives = self._secret_word.lives
 
     def _do_outputs(self):
         """
-
         Args:
             self (Director): An instance of Director.
         """
