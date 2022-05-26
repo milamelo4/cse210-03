@@ -60,9 +60,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+<<<<<<< HEAD
         
         self.lives = self._secret_word.lives         
             
+=======
+        parachute = self._jumper.get_parts
+        print(parachute)
+>>>>>>> 614a1e6cd485f2364c7f2f037a376e39e73f2f32
 
 
     def _do_outputs(self):
